@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AM Estudio - Ascensión Martín | Interiorismo y Decoración</title>
+    <meta name="description" content="Estudio de Decoración e Interiorismo en Sevilla, Madrid y Barcelona. Proyectos llave en mano con elegancia y exclusividad.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'am-gold': '#f0ce93fa',
+                        'am-teal': '#83c9c0',
+                        'am-dark': '#2d2d2d',
+                        'am-beige': '#fdfaf5ff',
+                        'am-gray': '#f4f4f4e9',
+                        'am-wood': '#e8d7c6f9'
+                    },
+                    fontFamily: {
+                        'playfair': ['"Playfair Display"', 'serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'slow-fade': 'slowFade 5s infinite alternate',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slowFade: {
+                            '0%': { opacity: '0.4' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .mist-overlay {
+            background: linear-gradient(to right, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0) 100%);
+            backdrop-filter: blur(2px);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .silver-card {
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            transition: all 0.5s ease;
+        }
+        
+        .silver-card:hover {
+            box-shadow: 0 0 25px rgba(238, 208, 157, 0.6);
+            transform: translateY(-5px);
+        }
+
+        .service-img {
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .carousel-item {
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            position: absolute;
+            inset: 0;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+        }
+
+        .tag-gold {
+            background: rgba(238, 208, 157, 0.35);
+            border: 1px solid rgba(238, 208, 157, 0.6);
+            color: #2d2d2d;
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .insta-feed-bg {
+            background: #1a1a1a;
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .scroll-top-btn {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-top-btn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .bg-beech-texture {
+            background-color: #fdfaf5;
+            background-image: radial-gradient(#eed09d 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            background-opacity: 0.05;
+        }
+    </style>
+</head>
+<body class="font-montserrat text-am-dark bg-am-beige selection:bg-am-gold selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center bg-white/80 backdrop-blur-md border-b border-am-gold/20">
+        <div class="flex items-center">
+            <img src="img/logo.png" alt="AM Estudio Logo" class="h-10 md:h-12 object-contain">
+        </div>
+        
+        <!-- Desktop Links -->
+        <div class="hidden md:flex space-x-8 items-center font-medium uppercase tracking-widest text-xs">
+            <a href="#proyectos" class="hover:text-am-gold transition-colors">Proyectos</a>
+            <a href="#servicios" class="hover:text-am-gold transition-colors">Servicios</a>
+            <a href="#instagram" class="hover:text-am-gold transition-colors">Instagram</a>
+            <a href="#contacto" class="bg-am-dark text-white px-5 py-2 rounded-sm hover:bg-am-gold hover:text-am-dark transition-all duration-300">Contacto</a>
+            
+            <!-- Social Icons in Nav -->
+            <div class="flex items-center space-x-4 border-l border-am-gold/20 pl-6 ml-2">
+                <a href="https://www.instagram.com/amestudiodec/" target="_blank" class="text-am-dark hover:text-am-gold transition-colors" title="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                </a>
+                <a href="https://www.facebook.com/amestudiodec" target="_blank" class="text-am-dark hover:text-am-gold transition-colors" title="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="menu-toggle" class="md:hidden text-am-dark p-2">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-white mobile-menu md:hidden flex flex-col p-8">
+        <div class="flex justify-between items-center mb-12">
+            <img src="img/logo.png" alt="AM Estudio Logo" class="h-10 object-contain">
+            <button id="menu-close" class="text-am-dark">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+        </div>
+        
+        <nav class="flex flex-col space-y-8 text-2xl font-playfair italic">
+            <a href="#proyectos" class="hover:text-am-gold border-b border-am-gold/10 pb-4">Proyectos</a>
+            <a href="#servicios" class="hover:text-am-gold border-b border-am-gold/10 pb-4">Servicios</a>
+            <a href="#contacto" class="hover:text-am-gold border-b border-am-gold/10 pb-4">Contacto</a>
+            
+            <div class="flex space-x-6 pt-4 justify-center">
+                <a href="https://www.instagram.com/amestudiodec/" target="_blank" class="text-am-gold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                </a>
+                <a href="https://www.facebook.com/amestudiodec" target="_blank" class="text-am-gold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+            </div>
+
+            <div class="mt-8 p-5 rounded-xl border border-am-gold relative overflow-hidden shadow-lg" style="background: linear-gradient(135deg, #fdfdfd 0%, #e5e7eb 100%);">
+                <h4 class="font-playfair font-bold text-lg mb-3 text-am-dark border-b border-am-gold/20 pb-2 italic">Horarios</h4>
+                <div class="space-y-2 font-montserrat">
+                    <p class="text-sm flex justify-between text-am-dark"><span>Lunes a Viernes</span> <span class="font-bold">9:00–20:00</span></p>
+                    <p class="text-sm flex justify-between text-am-dark/50"><span>Sábado y Domingo</span> <span>Cerrado</span></p>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen overflow-hidden">
+        <!-- Carousel Background -->
+        <div id="hero-carousel" class="absolute inset-0">
+            <div class="carousel-item active bg-cover bg-center" style="background-image: url('img/1.png')"></div>
+            <div class="carousel-item bg-cover bg-center" style="background-image: url('img/2.png')"></div>
+            <div class="carousel-item bg-cover bg-center" style="background-image: url('img/3.png')"></div>
+            <div class="carousel-item bg-cover bg-center" style="background-image: url('img/4.png')"></div>
+            <div class="carousel-item bg-cover bg-center" style="background-image: url('img/5.png')"></div>
+        </div>
+
+        <!-- Mist Overlay -->
+        <div class="absolute inset-0 mist-overlay z-10 pointer-events-none"></div>
+
+        <!-- Content -->
+        <div class="relative z-20 h-full flex flex-col justify-center px-6 md:px-20 max-w-4xl">
+            <h1 class="font-playfair text-4xl md:text-7xl leading-tight mb-8 animate-slide-up" style="animation-delay: 0.4s">
+                Estudio de <span class="italic text-am-gold font-medium drop-shadow-lg" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">Decoración</span> e Interiorismo. <br>
+                <span class="text-2xl md:text-4xl block mt-4 font-light text-am-dark/70">Proyectos Llave en Mano</span>
+            </h1>
+
+            <div class="flex flex-col items-start gap-8 animate-fade-in" style="animation-delay: 0.8s">
+                <a href="#contacto" class="bg-am-dark text-white px-6 py-3 rounded-sm border border-am-dark hover:bg-transparent hover:text-am-dark transition-all duration-500 font-medium tracking-widest text-xs uppercase">
+                    Contacto
+                </a>
+                
+                <div class="flex gap-2">
+                    <span class="tag-gold px-3 py-0.5 rounded-full font-light">Sevilla</span>
+                    <span class="tag-gold px-3 py-0.5 rounded-full font-light">Madrid</span>
+                    <span class="tag-gold px-3 py-0.5 rounded-full font-light">Barcelona</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+            <i data-lucide="chevron-down" class="text-am-gold w-8 h-8"></i>
+        </div>
+    </section>
+
+    <!-- Intro / Philosophy Section (Pastel Wood Tone) -->
+    <section class="py-24 px-6 md:px-20 bg-am-wood/30 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-beech-texture opacity-10 pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="text-am-teal font-semibold tracking-[0.3em] uppercase text-xs mb-4 block">Nuestra Esencia</span>
+            <h2 class="font-playfair text-3xl md:text-5xl italic text-am-dark mb-8 leading-relaxed">
+                "Creamos atmósferas que cuentan tu historia, <br> fusionando calidez, diseño y funcionalidad."
+            </h2>
+            <div class="w-20 h-px bg-am-gold mx-auto mb-8"></div>
+            <p class="text-am-dark/60 leading-loose max-w-2xl mx-auto mb-4">
+                En AM Estudio, cada proyecto es una oportunidad para transformar lo ordinario en extraordinario. Nuestra pasión por los detalles y la nobleza de los materiales nos permite crear espacios con alma.
+            </p>
+            <div class="max-w-2xl mx-auto text-right">
+                <span class="italic text-am-gold font-light text-xl" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">"La decoración como regalo"</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-24 px-6 md:px-20 bg-white relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl mb-4">Especialidades</h2>
+                <div class="w-24 h-1 bg-am-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Obras Card -->
+                <div class="silver-card rounded-2xl overflow-hidden group">
+                    <div class="relative h-96 overflow-hidden" id="service-obras">
+                        <img src="img/o1.png" class="absolute inset-0 w-full h-full object-cover service-img active" alt="Obras">
+                        <img src="img/o2.png" class="absolute inset-0 w-full h-full object-cover service-img opacity-0" alt="Obras">
+                        <img src="img/o3.png" class="absolute inset-0 w-full h-full object-cover service-img opacity-0" alt="Obras">
+                        <img src="img/o4.png" class="absolute inset-0 w-full h-full object-cover service-img opacity-0" alt="Obras">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-playfair text-3xl mb-4 text-am-dark">Obras</h3>
+                        <p class="text-am-dark/60 text-sm leading-relaxed mb-8">Gestión técnica y ejecución impecable para reformas que perduran en el tiempo.</p>
+                        <div class="flex items-center text-am-gold font-bold uppercase text-xs tracking-widest group-hover:gap-4 transition-all duration-300">
+                            Explorar Proyectos <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Details Card -->
+                <div class="silver-card rounded-2xl overflow-hidden group">
+                    <div class="relative h-96 overflow-hidden" id="service-details">
+                        <img src="img/m.png" class="absolute inset-0 w-full h-full object-cover service-img active" alt="Details">
+                        <img src="img/m2.png" class="absolute inset-0 w-full h-full object-cover service-img opacity-0" alt="Details">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-playfair text-3xl mb-4 text-am-dark">Details</h3>
+                        <p class="text-am-dark/60 text-sm leading-relaxed mb-8">La curación de piezas exclusivas y textiles que aportan carácter a cada estancia.</p>
+                        <div class="flex items-center text-am-gold font-bold uppercase text-xs tracking-widest group-hover:gap-4 transition-all duration-300">
+                            Explorar Proyectos <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deco Card -->
+                <div class="silver-card rounded-2xl overflow-hidden group">
+                    <div class="relative h-96 overflow-hidden" id="service-deco">
+                        <img src="img/m3.png" class="absolute inset-0 w-full h-full object-cover service-img active" alt="Deco">
+                        <img src="img/m4.png" class="absolute inset-0 w-full h-full object-cover service-img opacity-0" alt="Deco">
+                        <img src="img/m5.png" class="absolute inset-0 w-full h-full object-cover service-img opacity-0" alt="Deco">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-playfair text-3xl mb-4 text-am-dark">Deco</h3>
+                        <p class="text-am-dark/60 text-sm leading-relaxed mb-8">Interiorismo emocional: diseñamos hogares que respiran tu personalidad.</p>
+                        <div class="flex items-center text-am-gold font-bold uppercase text-xs tracking-widest group-hover:gap-4 transition-all duration-300">
+                            Explorar Proyectos <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Social Proof Section (Instagram) -->
+    <section id="instagram" class="insta-feed-bg py-24 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-6 mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
+            <div>
+                <h2 class="font-playfair text-4xl text-white mb-2">Síguenos en Instagram</h2>
+                <p class="text-am-gold font-medium tracking-widest uppercase text-sm">@amestudiodec</p>
+            </div>
+            <a href="https://www.instagram.com/amestudiodec/" target="_blank" class="text-white border border-white/20 px-6 py-3 rounded-sm hover:bg-white hover:text-am-dark transition-all text-xs tracking-widest uppercase">
+                Ver perfil completo
+            </a>
+        </div>
+
+        <!-- Instagram Carousel -->
+        <div class="flex gap-4 animate-[scroll_40s_linear_infinite] hover:[animation-play-state:paused]" id="insta-carousel">
+            <!-- First set -->
+            <img src="img/d1.png" class="h-64 md:h-96 w-auto rounded-lg object-cover shadow-2xl" alt="Insta 1">
+            <img src="img/d2.png" class="h-64 md:h-96 w-auto rounded-lg object-cover shadow-2xl" alt="Insta 2">
+            <img src="img/d3.png" class="h-64 md:h-96 w-auto rounded-lg object-cover shadow-2xl" alt="Insta 3">
+            <img src="img/d4.png" class="h-64 md:h-96 w-auto rounded-lg object-cover shadow-2xl" alt="Insta 4">
+            <img src="img/d5.png" class="h-64 md:h-96 w-auto rounded-lg object-cover shadow-2xl" alt="Insta 5">
+            <img src="img/d6.png" class="h-64 md:h-96 w-auto rounded-lg object-cover shadow-2xl" alt="Insta 6">
+            <!-- Duplicate for seamless loop -->
+            <img src="img/d1.png" class="h-64 md:h-96 w-auto rounded-lg object-cover shadow-2xl" alt="Insta 1">
+            <img src="img/d2.png" class="h-64 md:h-96 w-auto rounded-lg object-cover shadow-2xl" alt="Insta 2">
+            <img src="img/d3.png" class="h-64 md:h-96 w-auto rounded-lg object-cover shadow-2xl" alt="Insta 3">
+            <img src="img/d4.png" class="h-64 md:h-96 w-auto rounded-lg object-cover shadow-2xl" alt="Insta 4">
+            <img src="img/d5.png" class="h-64 md:h-96 w-auto rounded-lg object-cover shadow-2xl" alt="Insta 5">
+            <img src="img/d6.png" class="h-64 md:h-96 w-auto rounded-lg object-cover shadow-2xl" alt="Insta 6">
+        </div>
+
+        <style>
+            @keyframes scroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-100% / 2)); }
+            }
+        </style>
+    </section>
+
+    <!-- Footer / Contact Section -->
+    <footer id="contacto" class="bg-am-beige pt-24 pb-12 px-6 md:px-20 border-t border-am-gold/20 relative overflow-hidden">
+        <!-- Beech texture background hint -->
+        <div class="absolute inset-0 opacity-5 pointer-events-none bg-beech-texture"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 relative z-10">
+            <!-- About / Logo -->
+            <div class="space-y-6 text-center md:text-left">
+                <img src="img/logo.png" alt="AM Estudio" class="h-24 object-contain mx-auto md:mx-0">
+                <p class="text-sm leading-relaxed text-am-dark/70">
+                    Transformamos espacios en hogares. Sevilla, Madrid y Barcelona, llevamos la elegancia y el diseño exclusivo a cada rincón.
+                
+                </p>
+                <div class="flex space-x-4 justify-center md:justify-start">
+                    <a href="https://www.instagram.com/amestudiodec/" target="_blank" class="w-10 h-10 rounded-full border border-am-gold flex items-center justify-center text-am-gold hover:bg-am-gold hover:text-white transition-all" title="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/amestudiodec" target="_blank" class="w-10 h-10 rounded-full border border-am-gold flex items-center justify-center text-am-gold hover:bg-am-gold hover:text-white transition-all" title="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="space-y-6">
+                <h4 class="font-playfair text-xl font-bold uppercase tracking-widest text-am-gold">Contacto</h4>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-am-gold shrink-0 mt-1"></i>
+                        <p class="text-sm">C. los Rosales, 14, 41927 Mairena del Aljarafe, Sevilla</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="phone" class="w-5 h-5 text-am-gold shrink-0"></i>
+                        <p class="text-sm">616 87 46 45</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="mail" class="w-5 h-5 text-am-gold shrink-0"></i>
+                        <p class="text-sm">hola@amestudiodec.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schedule -->
+            <div class="space-y-6">
+                <h4 class="font-playfair text-xl font-bold uppercase tracking-widest text-am-gold">Horarios</h4>
+                <div class="space-y-2 text-sm">
+                    <div class="flex justify-between border-b border-am-gold/10 pb-1">
+                        <span>Lunes - Viernes</span>
+                        <span class="font-semibold">9:00 – 20:00</span>
+                    </div>
+                    <div class="flex justify-between border-b border-am-gold/10 pb-1">
+                        <span>Sábado</span>
+                        <span class="text-am-dark/40 italic">Cerrado</span>
+                    </div>
+                    <div class="flex justify-between border-b border-am-gold/10 pb-1">
+                        <span>Domingo</span>
+                        <span class="text-am-dark/40 italic">Cerrado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto mt-24 pt-8 border-t border-am-gold/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-[0.2em] text-am-dark/40">
+            <p>&copy; 2026 AM Estudio - Ascensión Martín. Todos los derechos reservados.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-am-gold">Aviso Legal</a>
+                <a href="#" class="hover:text-am-gold">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Actions -->
+    <a href="https://wa.me/34616874645" target="_blank" class="fixed bottom-6 right-6 z-40 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center">
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+    </a>
+
+    <button id="scroll-top" class="scroll-top-btn fixed bottom-24 right-8 z-40 bg-white/80 backdrop-blur border border-am-gold text-am-gold p-2 rounded-full shadow-lg hover:bg-am-gold hover:text-white transition-all">
+        <i data-lucide="chevron-up" class="w-5 h-5"></i>
+    </button>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+
+        menuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // Hero Carousel Logic
+        const heroItems = document.querySelectorAll('#hero-carousel .carousel-item');
+        let currentHero = 0;
+
+        function nextHero() {
+            heroItems[currentHero].classList.remove('active');
+            currentHero = (currentHero + 1) % heroItems.length;
+            heroItems[currentHero].classList.add('active');
+        }
+        setInterval(nextHero, 5000);
+
+        // Service Images Transition
+        function setupServiceCarousel(containerId) {
+            const container = document.getElementById(containerId);
+            const imgs = container.querySelectorAll('.service-img');
+            let current = 0;
+
+            setInterval(() => {
+                imgs[current].style.opacity = '0';
+                current = (current + 1) % imgs.length;
+                imgs[current].style.opacity = '1';
+            }, 3000 + Math.random() * 2000); // Varied timing for more natural feel
+        }
+
+        setupServiceCarousel('service-obras');
+        setupServiceCarousel('service-details');
+        setupServiceCarousel('service-deco');
+
+        // Scroll to Top visibility
+        const scrollTopBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
