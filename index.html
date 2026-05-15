@@ -216,7 +216,7 @@
         <div class="absolute inset-0 mist-overlay z-10 pointer-events-none"></div>
 
         <!-- Content -->
-        <div class="relative z-20 h-full flex flex-col justify-center px-6 md:px-20 max-w-4xl">
+        <div class="relative z-20 h-full flex flex-col justify-center px-6 md:px-20 max-w-4xl pb-32 md:pb-0">
             <h1 class="font-playfair text-4xl md:text-7xl leading-tight mb-8 animate-slide-up" style="animation-delay: 0.4s; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
                 Estudio de <span class="italic text-am-gold font-medium">Decoración</span> e Interiorismo. <br>
                 <span class="text-2xl md:text-4xl block mt-4 font-light text-am-dark/70">Proyectos <span class="text-am-gold font-medium" style="-webkit-text-stroke: 0.4px var(--am-gold-dark-hex, #8b6d31);">Llave en Mano</span></span>
@@ -430,7 +430,11 @@
     </footer>
 
     <!-- Floating Actions -->
-    <a href="https://wa.me/34616874645" target="_blank" class="fixed bottom-6 right-6 z-40 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center">
+    <a href="https://wa.me/34616874645" target="_blank" class="group fixed bottom-6 right-6 z-40 bg-[#25D366] text-white p-3 rounded-full shadow-2xl hover:scale-110 transition-all flex items-center justify-center">
+        <!-- Minimalist Tooltip -->
+        <span class="absolute right-full mr-4 px-4 py-2 bg-white text-am-dark text-xs font-bold tracking-wide rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap border border-am-gold">
+            ¿Hablamos por WhatsApp?
+        </span>
         <i data-lucide="message-circle" class="w-6 h-6"></i>
     </a>
 
