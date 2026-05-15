@@ -23,6 +23,7 @@
                 extend: {
                     colors: {
                         'am-gold': '#f0ce93fa',
+                        'am-gold-dark': '#8b6d31',
                         'am-teal': '#83c9c0',
                         'am-dark': '#2d2d2d',
                         'am-beige': '#fdfaf5ff',
@@ -216,9 +217,9 @@
 
         <!-- Content -->
         <div class="relative z-20 h-full flex flex-col justify-center px-6 md:px-20 max-w-4xl">
-            <h1 class="font-playfair text-4xl md:text-7xl leading-tight mb-8 animate-slide-up" style="animation-delay: 0.4s">
-                Estudio de <span class="italic text-am-gold font-medium drop-shadow-lg" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">Decoración</span> e Interiorismo. <br>
-                <span class="text-2xl md:text-4xl block mt-4 font-light text-am-dark/70">Proyectos Llave en Mano</span>
+            <h1 class="font-playfair text-4xl md:text-7xl leading-tight mb-8 animate-slide-up" style="animation-delay: 0.4s; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
+                Estudio de <span class="italic text-am-gold font-medium">Decoración</span> e Interiorismo. <br>
+                <span class="text-2xl md:text-4xl block mt-4 font-light text-am-dark/70">Proyectos <span class="text-am-gold font-medium" style="-webkit-text-stroke: 0.4px var(--am-gold-dark-hex, #8b6d31);">Llave en Mano</span></span>
             </h1>
 
             <div class="flex flex-col items-start gap-8 animate-fade-in" style="animation-delay: 0.8s">
@@ -253,7 +254,7 @@
                 En AM Estudio, cada proyecto es una oportunidad para transformar lo ordinario en extraordinario. Nuestra pasión por los detalles y la nobleza de los materiales nos permite crear espacios con alma.
             </p>
             <div class="max-w-2xl mx-auto text-right">
-                <span class="italic text-am-gold font-light text-xl" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">"La decoración como regalo"</span>
+                <span class="italic text-am-dark font-light text-xl" style="-webkit-text-stroke: 0.3px #f0ce93fa;">"La decoración como regalo"</span>
             </div>
         </div>
     </section>
@@ -278,7 +279,7 @@
                     <div class="p-8">
                         <h3 class="font-playfair text-3xl mb-4 text-am-dark">Obras</h3>
                         <p class="text-am-dark/60 text-sm leading-relaxed mb-8">Gestión técnica y ejecución impecable para reformas que perduran en el tiempo.</p>
-                        <div class="flex items-center text-am-gold font-bold uppercase text-xs tracking-widest group-hover:gap-4 transition-all duration-300">
+                        <div class="flex items-center text-am-gold-dark group-hover:text-am-gold cursor-pointer font-bold uppercase text-xs tracking-widest group-hover:gap-4 transition-colors duration-300">
                             Explorar Proyectos <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
                         </div>
                     </div>
@@ -293,7 +294,7 @@
                     <div class="p-8">
                         <h3 class="font-playfair text-3xl mb-4 text-am-dark">Details</h3>
                         <p class="text-am-dark/60 text-sm leading-relaxed mb-8">La curación de piezas exclusivas y textiles que aportan carácter a cada estancia.</p>
-                        <div class="flex items-center text-am-gold font-bold uppercase text-xs tracking-widest group-hover:gap-4 transition-all duration-300">
+                        <div class="flex items-center text-am-gold-dark group-hover:text-am-gold cursor-pointer font-bold uppercase text-xs tracking-widest group-hover:gap-4 transition-colors duration-300">
                             Explorar Proyectos <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
                         </div>
                     </div>
@@ -309,7 +310,7 @@
                     <div class="p-8">
                         <h3 class="font-playfair text-3xl mb-4 text-am-dark">Deco</h3>
                         <p class="text-am-dark/60 text-sm leading-relaxed mb-8">Interiorismo emocional: diseñamos hogares que respiran tu personalidad.</p>
-                        <div class="flex items-center text-am-gold font-bold uppercase text-xs tracking-widest group-hover:gap-4 transition-all duration-300">
+                        <div class="flex items-center text-am-gold-dark group-hover:text-am-gold cursor-pointer font-bold uppercase text-xs tracking-widest group-hover:gap-4 transition-colors duration-300">
                             Explorar Proyectos <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
                         </div>
                     </div>
@@ -332,7 +333,7 @@
         </div>
 
         <!-- Instagram Carousel -->
-        <div class="flex gap-4 animate-[scroll_40s_linear_infinite] hover:[animation-play-state:paused]" id="insta-carousel">
+        <div class="flex gap-4 animate-[scroll_30s_linear_infinite] hover:[animation-play-state:paused]" id="insta-carousel">
             <!-- First set -->
             <img src="img/d1.png" class="h-64 md:h-96 w-auto rounded-lg object-cover shadow-2xl" alt="Insta 1">
             <img src="img/d2.png" class="h-64 md:h-96 w-auto rounded-lg object-cover shadow-2xl" alt="Insta 2">
